@@ -1,0 +1,48 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Ricardo | Portfolio App Developer</title>
+  <style>
+    * { box-sizing: border-box; margin: 0; padding: 0; }
+    body { font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, Helvetica, Arial, sans-serif; background-color: #0b0c10; color: #ffffff; min-height: 100vh; display: flex; justify-content: center; align-items: center; padding: 24px; }
+    .card { background-color: #14161d; border: 1px solid #232733; border-radius: 12px; max-width: 680px; width: 100%; padding: 48px 40px; box-shadow: 0 20px 45px rgba(0,0,0,0.6); }
+    .tag { color: #f97316; font-size: 0.72rem; font-weight: 700; letter-spacing: 2px; text-transform: uppercase; margin-bottom: 12px; display: block; }
+    h1 { font-size: 2.1rem; font-weight: 700; margin-bottom: 14px; }
+    p.lead { color: #9ca3af; font-size: 0.98rem; line-height: 1.6; margin-bottom: 28px; }
+    .actions { display: flex; gap: 12px; margin-bottom: 36px; }
+    .btn { display: inline-flex; align-items: center; gap: 6px; border: 1px solid #3f3f46; background: transparent; color: #ffffff; padding: 10px 20px; border-radius: 6px; text-decoration: none; font-size: 0.78rem; font-weight: 600; letter-spacing: 1px; transition: all 0.2s; }
+    .btn:hover { border-color: #f97316; color: #f97316; }
+    .section-title { font-size: 0.72rem; font-weight: 700; letter-spacing: 2px; color: #f97316; text-transform: uppercase; margin-bottom: 20px; margin-top: 32px; border-top: 1px solid #232733; padding-top: 24px; }
+    .project { margin-bottom: 24px; }
+    .project h3 { font-size: 1.15rem; margin-bottom: 6px; }
+    .project p { color: #9ca3af; font-size: 0.9rem; line-height: 1.5; margin-bottom: 12px; }
+  </style>
+</head>
+<body>
+  <div class="card">
+    <span class="tag">DESARROLLO MULTIPLATAFORMA</span>
+    <h1>Ricardo – App Developer</h1>
+    <p class="lead">Especializado en arquitecturas backend con Java, despliegue de contenedores y bases de datos relacionales.</p>
+    
+    <div class="actions">
+      <a href="https://github.com/ByAkane7" target="_blank" class="btn">GITHUB ↗</a>
+    </div>
+
+    <div class="section-title">PROYECTOS DESTACADOS</div>
+
+    <div class="project">
+      <span class="tag" style="margin-bottom: 4px;">CLOUDSPACE</span>
+      <p>Gestor de archivos en la nube desarrollado con Jakarta EE Servlets, MySQL y despliegue en contenedores Docker.</p>
+      <a href="https://github.com/ByAkane7/CloudSpace" target="_blank" class="btn">VER REPOSITORIO ↗</a>
+    </div>
+
+    <div class="project">
+      <span class="tag" style="margin-bottom: 4px;">ESTOY BIEN</span>
+      <p>Plataforma de teleasistencia y bienestar con Node.js, Express y despliegue cloud en Vercel.</p>
+      <a href="https://estoy-bien.vercel.app" target="_blank" class="btn">VISITAR DEMO ↗</a>
+    </div>
+  </div>
+</body>
+</html>
