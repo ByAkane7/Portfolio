@@ -31,18 +31,22 @@
     .credentials { background: #111; border-left: 2px solid var(--muted); padding: 16px; border-radius: 4px; font-family: monospace; font-size: 0.85rem; color: #bbb; margin: 20px 0; }
     .credentials strong { color: #fff; }
 
+    /* Galería */
     .gallery { display: grid; grid-template-columns: repeat(auto-fit, minmax(140px, 1fr)); gap: 16px; margin-top: 24px; }
-    .gallery a { display: block; overflow: hidden; border-radius: 8px; border: 1px solid var(--border); transition: border-color 0.2s; }
-    .gallery a:hover { border-color: var(--accent); }
-    .gallery img { width: 100%; height: 220px; object-fit: cover; display: block; transition: transform 0.3s; }
-    .gallery a:hover img { transform: scale(1.05); }
+    .gallery img { width: 100%; height: 220px; object-fit: cover; display: block; border-radius: 8px; border: 1px solid var(--border); transition: transform 0.3s, border-color 0.2s; cursor: zoom-in; }
+    .gallery img:hover { transform: scale(1.03); border-color: var(--accent); }
+
+    /* Modal (Visor de imágenes) */
+    #img-modal { display: none; position: fixed; top: 0; left: 0; width: 100%; height: 100%; background: rgba(0,0,0,0.92); z-index: 9999; justify-content: center; align-items: center; cursor: zoom-out; opacity: 0; transition: opacity 0.2s; }
+    #img-modal.active { display: flex; opacity: 1; }
+    #img-modal img { max-width: 90vw; max-height: 90vh; border-radius: 8px; box-shadow: 0 10px 40px rgba(0,0,0,0.5); object-fit: contain; }
 
     .stack-grid { display: grid; grid-template-columns: repeat(auto-fit, minmax(200px, 1fr)); gap: 20px; }
     .stack-card { border-top: 1px solid var(--border); padding-top: 16px; }
     .stack-card h3 { font-size: 0.85rem; color: var(--accent); margin-bottom: 8px; }
     .stack-card p { font-size: 0.9rem; color: var(--muted); }
 
-    footer { border-top: 1px solid var(--border); padding-top: 32px; margin-top: 60px; display: flex; justify-content: space-between; font-size: 0.85rem; color: var(--muted); }
+    footer { border-top: 1px solid var(--border); padding-top: 32px; margin-top: 60px; display: flex; justify-content: space-between; font-size: 0.85rem; color: var(--muted); padding-bottom: 40px; }
   </style>
 </head>
 <body>
@@ -73,10 +77,10 @@
       </div>
 
       <div class="gallery">
-        <a href="Captura1.png" target="_blank"><img src="Captura1.png" alt="CloudSpace Captura 1"></a>
-        <a href="Captura2.png" target="_blank"><img src="Captura2.png" alt="CloudSpace Captura 2"></a>
-        <a href="Captura3.png" target="_blank"><img src="Captura3.png" alt="CloudSpace Captura 3"></a>
-        <a href="Captura4.png" target="_blank"><img src="Captura4.png" alt="CloudSpace Captura 4"></a>
+        <img src="Captura1.png" alt="CloudSpace Captura 1">
+        <img src="Captura2.png" alt="CloudSpace Captura 2">
+        <img src="Captura3.png" alt="CloudSpace Captura 3">
+        <img src="Captura4.png" alt="CloudSpace Captura 4">
       </div>
     </div>
 
@@ -93,10 +97,10 @@
       </div>
 
       <div class="gallery">
-        <a href="Captura5.png" target="_blank"><img src="Captura5.png" alt="Estoy Bien Captura 5"></a>
-        <a href="Captura6.png" target="_blank"><img src="Captura6.png" alt="Estoy Bien Captura 6"></a>
-        <a href="Captura7.png" target="_blank"><img src="Captura7.png" alt="Estoy Bien Captura 7"></a>
-        <a href="Captura8.png" target="_blank"><img src="Captura8.png" alt="Estoy Bien Captura 8"></a>
+        <img src="Captura5.png" alt="Estoy Bien Captura 5">
+        <img src="Captura6.png" alt="Estoy Bien Captura 6">
+        <img src="Captura7.png" alt="Estoy Bien Captura 7">
+        <img src="Captura8.png" alt="Estoy Bien Captura 8">
       </div>
     </div>
 
@@ -126,5 +130,37 @@
     </footer>
 
   </div>
+
+  <!-- Contenedor del Visor de Imágenes -->
+  <div id="img-modal">
+    <img id="modal-img" src="" alt="Zoom">
+  </div>
+
+  <!-- Script para el Visor -->
+  <script>
+    const modal = document.getElementById('img-modal');
+    const modalImg = document.getElementById('modal-img');
+    const images = document.querySelectorAll('.gallery img');
+
+    // Abrir imagen al hacer clic
+    images.forEach(img => {
+      img.addEventListener('click', () => {
+        modalImg.src = img.src;
+        modal.classList.add('active');
+      });
+    });
+
+    // Cerrar al hacer clic en cualquier parte del fondo
+    modal.addEventListener('click', () => {
+      modal.classList.remove('active');
+    });
+
+    // Cerrar con la tecla ESC
+    document.addEventListener('keydown', (e) => {
+      if (e.key === 'Escape' && modal.classList.contains('active')) {
+        modal.classList.remove('active');
+      }
+    });
+  </script>
 </body>
 </html>
